@@ -1,0 +1,43 @@
+﻿@using mvc_web_app.Data;
+@{
+    ViewData["Title"] = "TableEMP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<UserInfo>
+
+
+<div>
+    <form action="/Home/TableEMP" method="post">
+        <input type="text" name="model" placeholder="Pls enter your card_ID" />
+        <input type="submit" name="Search" />
+    </form>
+    <br />
+</div>
+
+<div>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Person Name</th>
+                <th>ID Card</th>
+                <th>Address</th>
+                <th>Old</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var sp in Model)
+                {
+                    <tr>
+                        <td>@sp.Name</td>
+                        <td>@sp.IdCard</td>
+                        <td>@sp.Address</td>
+                        <td>@sp.Old</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
